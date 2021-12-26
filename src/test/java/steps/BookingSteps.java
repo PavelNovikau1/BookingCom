@@ -31,7 +31,7 @@ public class BookingSteps {
         $(SEARCH_BUTTON).click();
     }
 
-    @And("{string} should be on the first page")
+    @And("Hotel {string} should be on the first page")
     public void hotelShouldBeOnTheFirstPage(String hotel) {
         ArrayList<String> hotelsNames = new ArrayList<>();
         for (SelenideElement element : $$(By.xpath(HOTEL_NAMES))) {
@@ -40,7 +40,7 @@ public class BookingSteps {
         Assert.assertTrue(hotelsNames.contains(hotel));
     }
 
-    @Then("{string} rating is {string}")
+    @Then("Hotel {string} rating is {string}")
     public void hotelRatingIsExpectedRate(String hotel, String expectedRate) {
         ArrayList<String> hotelsRating = new ArrayList<>();
         for (SelenideElement element : $$(By.xpath(String.format(HOTEL_RATING, hotel)))) {
